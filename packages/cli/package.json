@@ -1,17 +1,19 @@
 {
-  "name": "@vic/amockgen",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@vhictor/amockgen",
+  "version": "1.0.0",
+  "description": "Zero-config stateful API mocking CLI",
+  "main": "dist/index.js",
   "bin": {
     "amockgen": "./dist/index.js"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc && echo '#!/usr/bin/env node'",
+    "build": "tsc && node -e \"const fs=require('fs'); const p='dist/index.js'; fs.writeFileSync(p, '#!/usr/bin/env node\\n' + fs.readFileSync(p, 'utf8'));\"",
     "dev": "tsc --watch",
     "start": "node dist/index.js"
   },
