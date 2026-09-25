@@ -19,11 +19,51 @@ amockgen parses OpenAPI (v3.x) specifications and instantly spins up a local HTT
 - Hot-Reloading: Monitors OpenAPI specification files for updates and automatically reloads server routes and schemas in real time.
 
 - Visual Terminal Telemetry: Built-in **ANSI** escape sequences format request methods, HTTP status codes, and execution times (in ms) with distinct color highlights.
+
+## Monorepo Architecture
+
+AmockGen is structured as a pnpm workspace managed with turbo:
+
+```
+amockgen/
+├── packages/
+│   ├── core/           # Parser, Ajv schema validator, and Faker data generator engine
+│   ├── mock-server/    # Fastify server, MockStore state manager, and colored logging hooks
+│   ├── docs-ui/        # Stoplight Elements HTML template handler
+│   └── cli/            # Commander CLI binary, path resolver, and file watcher
+├── package.json
+└── turbo.json
+```
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js >= 18
+- pnpm >= 8
+
+## Developement Setup
+
+1. ### Clone the repository:
+
+`git clone https://github.com/YOUR_USERNAME/amockgen.git`
+`cd amockgen`
+
+### Install workspace dependencies:
+
+`pnpm install`
+
+### Build all workspace packages:
+
+`pnpm build`
+
+### Start the mock server:
+
+`pnpm start`
+
 ## Usage:
 
-```npm install @vhictor/amockgen```
-
-When you run ```npm install @vhictor/amockgen``` from your project root, amockgen:
+When you run pnpm start from your project root, amockgen:
 
 - Resolves openapi.json / openapi.yaml in your current directory.
 
