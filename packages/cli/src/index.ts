@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { parseOpenApiSpec } from "@amockgen/core";
 import { createMockServer } from "@amockgen/mock-server";
 import { Command } from "commander";
