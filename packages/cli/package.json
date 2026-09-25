@@ -1,5 +1,5 @@
 {
-  "name": "amockgen",
+  "name": "@vic/amockgen",
   "version": "0.1.0",
   "private": true,
   "bin": {
